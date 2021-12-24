@@ -1,16 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="org.pl.electricitybillingsystempl2project.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
-
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<TabPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+         minWidth="-Infinity" prefHeight="609.0" prefWidth="1044.0" tabClosingPolicy="UNAVAILABLE"
+         xmlns="http://javafx.com/javafx/8.0.171">
+    <tabs>
+        <Tab text="Customers">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="464.0" prefWidth="694.0">
+                    <children>
+                        <Button layoutX="930.0" layoutY="505.0" mnemonicParsing="false" prefHeight="31.0"
+                                prefWidth="60.0" text="Exit"/>
+                        <Button layoutX="843.0" layoutY="48.0" mnemonicParsing="false" text="Add new Customer"/>
+                        <Button layoutX="37.0" layoutY="48.0" mnemonicParsing="false" prefHeight="31.0"
+                                prefWidth="109.0" text="Search"/>
+                        <TextField layoutX="175.0" layoutY="48.0" prefHeight="31.0" prefWidth="649.0"/>
+                        <Label layoutX="175.0" layoutY="94.0" prefHeight="28.0" prefWidth="85.0" text="Search By"/>
+                        <VBox layoutX="256.0" layoutY="101.0" prefHeight="118.0" prefWidth="163.0" spacing="10.0">
+                            <children>
+                                <RadioButton mnemonicParsing="false" text="Id">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="Search"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton mnemonicParsing="false" text="Name" toggleGroup="$Search"/>
+                                <RadioButton mnemonicParsing="false" text="Email" toggleGroup="$Search"/>
+                                <RadioButton mnemonicParsing="false" text="Phone" toggleGroup="$Search"/>
+                                <RadioButton mnemonicParsing="false" text="Meter Id" toggleGroup="$Search"/>
+                            </children>
+                        </VBox>
+                        <ScrollPane layoutX="179.0" layoutY="257.0" prefHeight="282.0" prefWidth="652.0">
+                            <content>
+                                <TableView prefHeight="282.0" prefWidth="626.0">
+                                    <columns>
+                                        <TableColumn prefWidth="87.0" text="Id"/>
+                                        <TableColumn prefWidth="120.0" text="Name"/>
+                                        <TableColumn prefWidth="119.0" text="Email"/>
+                                        <TableColumn prefWidth="114.0" text="Phone"/>
+                                        <TableColumn prefWidth="106.0" text="Meter Id"/>
+                                        <TableColumn prefWidth="76.0" text="Details"/>
+                                    </columns>
+                                </TableView>
+                            </content>
+                        </ScrollPane>
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab text="Operator">
+            <content>
+                <AnchorPane>
+                    <children>
+                        <Button layoutX="304.0" layoutY="429.0" mnemonicParsing="false" prefHeight="31.0"
+                                prefWidth="409.0" text="Button"/>
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab text="Bills           ">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
+            </content>
+        </Tab>
+        <Tab text="Users         ">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>
