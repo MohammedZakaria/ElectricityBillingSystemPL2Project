@@ -4,7 +4,8 @@
 <?import javafx.scene.layout.*?>
 <TabPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
          minWidth="-Infinity" prefHeight="748.0" prefWidth="1044.0" tabClosingPolicy="UNAVAILABLE"
-         xmlns="http://javafx.com/javafx/8.0.171">
+         xmlns="http://javafx.com/javafx/8.0.171"
+         fx:controller="org.pl.electricitybillingsystempl2project.HelloController">
     <tabs>
         <Tab text="Customers">
             <content>
@@ -115,6 +116,8 @@
                         <ChoiceBox layoutX="229.0" layoutY="99.0" prefWidth="150.0"/>
                         <Button fx:id="adminBillsExit" layoutX="902.0" layoutY="648.0" mnemonicParsing="false"
                                 prefHeight="31.0" prefWidth="81.0" text="Exit"/>
+                        <Button layoutX="366.0" layoutY="324.0" mnemonicParsing="false" onAction="#onHelloButtonClick"
+                                prefHeight="31.0" prefWidth="143.0" text="test"/>
                     </children>
                 </AnchorPane>
             </content>
