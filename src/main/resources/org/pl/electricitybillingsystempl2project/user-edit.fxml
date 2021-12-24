@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
@@ -8,16 +7,16 @@
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" minHeight="0.0" minWidth="0.0" prefHeight="736.0" prefWidth="903.0"
             xmlns="http://javafx.com/javafx/8.0.171">
     <children>
-        <RadioButton layoutX="227.0" layoutY="213.0" mnemonicParsing="false" text="Customer">
+        <RadioButton fx:id="UserEditTypeCust" layoutX="227.0" layoutY="213.0" mnemonicParsing="false" text="Customer">
             <toggleGroup>
                 <ToggleGroup fx:id="TypeOfUser"/>
             </toggleGroup>
         </RadioButton>
-        <RadioButton layoutX="355.0" layoutY="213.0" mnemonicParsing="false" text="Operator"/>
-        <RadioButton layoutX="358.0" layoutY="265.0" mnemonicParsing="false" text="Remove"/>
-        <RadioButton layoutX="227.0" layoutY="265.0" mnemonicParsing="false" text="Update"/>
-        <Button layoutX="513.0" layoutY="659.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="142.0"
-                text="Apply Changes"/>
+        <RadioButton fx:id="UserEditTypeOp" layoutX="355.0" layoutY="213.0" mnemonicParsing="false" text="Operator"/>
+        <RadioButton fx:id="UserEditTypeRemove" layoutX="358.0" layoutY="265.0" mnemonicParsing="false" text="Remove"/>
+        <RadioButton fx:id="UserEditTypeUpdate" layoutX="227.0" layoutY="265.0" mnemonicParsing="false" text="Update"/>
+        <Button fx:id="userEditApplyChanges" layoutX="513.0" layoutY="659.0" mnemonicParsing="false" prefHeight="31.0"
+                prefWidth="142.0" text="Apply Changes"/>
         <Label layoutX="285.0" layoutY="29.0" prefHeight="37.0" prefWidth="290.0" text="Update and Delete Users">
             <font>
                 <Font name="System Bold" size="24.0"/>
@@ -45,24 +44,26 @@
         </VBox>
         <VBox layoutX="218.0" layoutY="334.0" prefHeight="245.0" prefWidth="361.0" spacing="8.0">
             <children>
-                <TextField promptText="Name"/>
-                <TextField promptText="Email"/>
-                <TextField promptText="Phone"/>
-                <PasswordField promptText="**********"/>
-                <TextField promptText="Meter Id"/>
-                <TextField promptText="Region"/>
+                <TextField fx:id="userEditName" promptText="Name"/>
+                <TextField fx:id="userEditEmail" promptText="Email"/>
+                <TextField fx:id="userEditPhone" promptText="Phone"/>
+                <PasswordField fx:id="userEditPassword" promptText="**********"/>
+                <TextField fx:id="userEditMeterId" promptText="Meter Id"/>
+                <TextField fx:id="userEditRegion" promptText="Region"/>
             </children>
         </VBox>
-        <Button layoutX="775.0" layoutY="659.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="82.0" text="Exit"/>
-        <Button layoutX="676.0" layoutY="659.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="81.0"
-                text="Cancel"/>
-        <TextField layoutX="214.0" layoutY="149.0" prefHeight="31.0" prefWidth="370.0" promptText="User Id"/>
+        <Button fx:id="userEditExit" layoutX="775.0" layoutY="659.0" mnemonicParsing="false" prefHeight="31.0"
+                prefWidth="82.0" text="Exit"/>
+        <Button fx:id="userEditCancel" layoutX="676.0" layoutY="659.0" mnemonicParsing="false" prefHeight="31.0"
+                prefWidth="81.0" text="Cancel"/>
+        <TextField fx:id="userEditUserId" layoutX="214.0" layoutY="149.0" prefHeight="31.0" prefWidth="370.0"
+                   promptText="User Id"/>
         <Label layoutX="70.0" layoutY="151.0" text="User Id">
             <font>
                 <Font size="18.0"/>
             </font>
         </Label>
-        <RadioButton layoutX="483.0" layoutY="213.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="80.0"
-                     text="Admin"/>
+        <RadioButton fx:id="UserEditTypeAdmin" layoutX="483.0" layoutY="213.0" mnemonicParsing="false" prefHeight="21.0"
+                     prefWidth="80.0" text="Admin"/>
     </children>
 </AnchorPane>

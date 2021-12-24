@@ -65,6 +65,6 @@
       <Button fx:id="custDetailsCancel" layoutX="752.0" layoutY="444.0" mnemonicParsing="false" prefHeight="31.0"
               prefWidth="95.0" text="Cancel"/>
       <Label layoutX="78.0" layoutY="237.0" text="Region"/>
-      <Label layoutX="177.0" layoutY="237.0" text="Region"/>
+      <Label fx:id="custRegion" layoutX="177.0" layoutY="237.0" text="Region"/>
    </children>
 </AnchorPane>
