@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="510.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/8.0.171">
+   <children>
+      <VBox layoutX="78.0" layoutY="90.0" prefHeight="158.0" prefWidth="85.0">
+         <children>
+            <Label text="Id"/>
+            <Label text="Name"/>
+            <Label text="Email"/>
+            <Label text="Phone"/>
+            <Label text="Meter Id"/>
+            <Label layoutX="10.0" layoutY="115.0" text="Meter Status"/>
+            <Label layoutX="10.0" layoutY="94.0" text="Bill"/>
+            <Label layoutX="10.0" layoutY="136.0" text="Region"/>
+         </children>
+      </VBox>
+      <VBox layoutX="177.0" layoutY="90.0" prefHeight="116.0" prefWidth="263.0">
+         <children>
+            <Label fx:id="operatorCustDetailsId" text="id"/>
+            <Label fx:id="operatorCustDetailsName" text="Name"/>
+            <Label fx:id="operatorCustDetailsEmail" text="Email"/>
+            <Label fx:id="operatorCustDetailsPhone" text="Phone"/>
+            <Label fx:id="operatorCustDetailsMeterId" text="Meter Id"/>
+            <Label fx:id="operatorCustDetailsMeterStatus" layoutX="10.0" layoutY="115.0" text="Meter Status"/>
+            <Label fx:id="operatorCustDetailsBill" layoutX="10.0" layoutY="94.0" text="Bill"/>
+            <Label fx:id="operatorCustDetailsRegion" layoutX="10.0" layoutY="136.0" text="Region"/>
+         </children>
+      </VBox>
+      <Label layoutX="78.0" layoutY="39.0" prefHeight="30.0" prefWidth="173.0" text="Customer Details">
+         <font>
+            <Font name="System Bold" size="20.0"/>
+         </font>
+      </Label>
+      <ImageView fx:id="custDetailsContract" fitHeight="158.0" fitWidth="187.0" layoutX="71.0" layoutY="264.0"
+                 pickOnBounds="true" preserveRatio="true"/>
+      <Button fx:id="operatorCustDetailsDownloadContract" layoutX="70.0" layoutY="444.0" mnemonicParsing="false"
+              text="Download Contract"/>
+      <AnchorPane layoutX="459.0" layoutY="89.0" prefHeight="62.0" prefWidth="296.0">
+         <children>
+            <Button fx:id="operatorCustDetailsPrintBill" layoutX="13.0" layoutY="26.0" mnemonicParsing="false"
+                    text="Print Bill"/>
+            <Button fx:id="operatorCustDetailsCollectPayment" layoutX="110.0" layoutY="26.0" mnemonicParsing="false"
+                    prefHeight="31.0" prefWidth="164.0" text="Collect Payment"/>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="459.0" layoutY="155.0" prefHeight="74.0" prefWidth="418.0">
+         <children>
+            <TextField fx:id="operatorCustDetailsCustReading" layoutX="226.0" layoutY="14.0" prefHeight="31.0"
+                       prefWidth="164.0" promptText="Customer's Reading"/>
+            <Button fx:id="operatorCustDetailsValidate" layoutX="14.0" layoutY="14.0" mnemonicParsing="false"
+                    text="Validate Real Consumption"/>
+         </children>
+      </AnchorPane>
+      <Button fx:id="operatorCustDetailsCancel" layoutX="752.0" layoutY="444.0" mnemonicParsing="false"
+              prefHeight="31.0" prefWidth="95.0" text="Cancel"/>
+      <Button fx:id="operatorCustomerDetailsCancelSubscribtion" layoutX="559.0" layoutY="444.0" mnemonicParsing="false"
+              prefHeight="31.0" prefWidth="142.0" text="Cancel Suscribtion"/>
+   </children>
+</AnchorPane>
