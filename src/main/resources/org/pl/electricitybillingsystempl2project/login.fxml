@@ -18,8 +18,6 @@
                             style="-fx-background-color: #3BFF47;"/>
                 <TextField fx:id="LoginEmail" layoutX="146.0" layoutY="119.0" prefHeight="31.0" prefWidth="202.0"
                            promptText="Email"/>
-                <TextField fx:id="LoginPassword" layoutX="146.0" layoutY="167.0" prefHeight="31.0" prefWidth="202.0"
-                           promptText="Password"/>
                 <Button fx:id="LoginLogin" layoutX="146.0" layoutY="212.0" mnemonicParsing="false" prefHeight="31.0"
                         prefWidth="85.0" text="Login"/>
                 <Button fx:id="LoginRegister" layoutX="263.0" layoutY="212.0" mnemonicParsing="false" prefHeight="31.0"
@@ -49,6 +47,8 @@
                         </RadioButton>
                     </children>
                 </VBox>
+                <PasswordField layoutX="146.0" layoutY="167.0" prefHeight="31.0" prefWidth="202.0"
+                               promptText="**********"/>
             </children>
         </AnchorPane>
     </children>
