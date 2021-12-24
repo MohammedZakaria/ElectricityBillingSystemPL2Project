@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="544.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/8.0.171">
+   <children>
+      <Label layoutX="74.0" layoutY="24.0" prefHeight="54.0" prefWidth="250.0" text="New Operator Information">
+         <font>
+            <Font name="System Bold" size="18.0"/>
+         </font>
+      </Label>
+      <VBox layoutX="74.0" layoutY="97.0" prefHeight="226.0" prefWidth="124.0" spacing="27.0">
+         <children>
+            <Label text="Name"/>
+            <Label text="Phone"/>
+            <Label text="Email"/>
+            <Label layoutX="10.0" layoutY="250.0" text="Password"/>
+            <Label layoutX="10.0" layoutY="202.0" text="Confirm Password"/>
+         </children>
+      </VBox>
+      <VBox layoutX="227.0" layoutY="97.0" prefHeight="226.0" prefWidth="301.0" spacing="16.0">
+         <children>
+            <TextField fx:id="addNewCustName" promptText="Name"/>
+            <TextField fx:id="addNewCustPhone" layoutX="10.0" layoutY="10.0" promptText="Phone"/>
+            <TextField fx:id="addNewCustEmail" layoutX="10.0" layoutY="56.0" promptText="Email"/>
+            <PasswordField promptText="***********"/>
+            <PasswordField promptText="***********"/>
+         </children>
+      </VBox>
+      <Button fx:id="addNewCustCancel" layoutX="582.0" layoutY="473.0" mnemonicParsing="false" prefHeight="31.0"
+              prefWidth="88.0" text="Cancel"/>
+      <Button fx:id="addNewCustRegister" layoutX="465.0" layoutY="473.0" mnemonicParsing="false" prefHeight="31.0"
+              prefWidth="88.0" text="Register"/>
+   </children>
+</AnchorPane>
