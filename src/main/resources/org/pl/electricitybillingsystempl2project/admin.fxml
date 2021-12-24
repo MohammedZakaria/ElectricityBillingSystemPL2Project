@@ -11,13 +11,13 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="603.0" prefWidth="1044.0">
                     <children>
                         <Button fx:id="adminCustExit" layoutX="922.0" layoutY="618.0" mnemonicParsing="false"
-                                prefHeight="31.0" prefWidth="68.0" text="Exit"/>
+                                onAction="#exit" prefHeight="31.0" prefWidth="68.0" text="Exit"/>
                         <Button fx:id="adminCustAddNewCust" layoutX="843.0" layoutY="48.0" mnemonicParsing="false"
                                 text="Add new Customer"/>
                         <Button fx:id="adminCustSearch" layoutX="37.0" layoutY="48.0" mnemonicParsing="false"
                                 prefHeight="31.0" prefWidth="109.0" text="Search"/>
                         <TextField fx:id="adminCustSearchBar" layoutX="175.0" layoutY="48.0" prefHeight="31.0"
-                                   prefWidth="649.0"/>
+                                   prefWidth="649.0" promptText="Search"/>
                         <Label layoutX="175.0" layoutY="94.0" prefHeight="28.0" prefWidth="85.0" text="Search By"/>
                         <VBox layoutX="256.0" layoutY="101.0" prefHeight="118.0" prefWidth="163.0" spacing="10.0">
                             <children>
@@ -56,20 +56,63 @@
                                 </TableView>
                             </content>
                         </ScrollPane>
+                        <Button layoutX="843.0" layoutY="93.0" mnemonicParsing="false" prefHeight="31.0"
+                                prefWidth="146.0" text="Update Customer"/>
+                        <Button layoutX="842.0" layoutY="140.0" mnemonicParsing="false" prefHeight="31.0"
+                                prefWidth="148.0" text="Remove Customer"/>
                     </children>
                 </AnchorPane>
             </content>
         </Tab>
-        <Tab text="Operator">
+        <Tab text="Users         ">
             <content>
-                <AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="603.0" prefWidth="1044.0">
                     <children>
-                        <Button fx:id="adminOperatorExit" layoutX="858.0" layoutY="631.0" mnemonicParsing="false"
-                                prefHeight="31.0" prefWidth="126.0" text="Exit"/>
+                        <Button fx:id="adminCustExit1" layoutX="922.0" layoutY="618.0" mnemonicParsing="false"
+                                prefHeight="31.0" prefWidth="68.0" text="Exit"/>
+                        <Button fx:id="adminCustAddNewCust1" layoutX="843.0" layoutY="48.0" mnemonicParsing="false"
+                                text="Add new User"/>
+                        <Button fx:id="adminCustSearch1" layoutX="37.0" layoutY="48.0" mnemonicParsing="false"
+                                prefHeight="31.0" prefWidth="109.0" text="Search"/>
+                        <TextField fx:id="adminCustSearchBar1" layoutX="175.0" layoutY="48.0" prefHeight="31.0"
+                                   prefWidth="649.0" promptText="Search"/>
+                        <Label layoutX="175.0" layoutY="94.0" prefHeight="28.0" prefWidth="85.0" text="Search By"/>
+                        <VBox layoutX="256.0" layoutY="101.0" prefHeight="118.0" prefWidth="163.0" spacing="10.0">
+                            <children>
+                                <RadioButton fx:id="adminCustSearchById1" mnemonicParsing="false" text="Id">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="Search1"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="adminCustSearchByName1" mnemonicParsing="false" text="Name">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="Search11"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="adminCustSearchByEmail1" mnemonicParsing="false" text="Email"
+                                             toggleGroup="$Search11"/>
+                                <RadioButton fx:id="adminCustSearchByPhone1" mnemonicParsing="false" text="Phone"
+                                             toggleGroup="$Search11"/>
+                            </children>
+                        </VBox>
+                        <ScrollPane layoutX="179.0" layoutY="322.0" prefHeight="351.0" prefWidth="652.0">
+                            <content>
+                                <TableView prefHeight="346.0" prefWidth="626.0">
+                                    <columns>
+                                        <TableColumn prefWidth="87.0" text="Id"/>
+                                        <TableColumn prefWidth="120.0" text="Name"/>
+                                        <TableColumn prefWidth="119.0" text="Email"/>
+                                        <TableColumn prefWidth="154.0" text="Phone"/>
+                                        <TableColumn prefWidth="119.0" text="Details"/>
+                                    </columns>
+                                </TableView>
+                            </content>
+                        </ScrollPane>
                     </children>
                 </AnchorPane>
             </content>
         </Tab>
+        <Tab text="Authorities"/>
         <Tab text="Bills           ">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -81,14 +124,25 @@
                 </AnchorPane>
             </content>
         </Tab>
-        <Tab text="Users         ">
-            <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
-            </content>
-        </Tab>
         <Tab text="Complains    ">
             <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <ScrollPane layoutX="161.0" layoutY="95.0" prefHeight="520.0" prefWidth="723.0"/>
+                        <Button layoutX="905.0" layoutY="646.0" mnemonicParsing="false" prefHeight="31.0"
+                                prefWidth="76.0" text="Exit"/>
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab text="Statistics         ">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <Button layoutX="906.0" layoutY="646.0" mnemonicParsing="false" prefHeight="31.0"
+                                prefWidth="77.0" text="Exit"/>
+                    </children>
+                </AnchorPane>
             </content>
         </Tab>
     </tabs>
