@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="418.0" prefWidth="557.0" xmlns="http://javafx.com/javafx/8.0.171"/>
+            minWidth="-Infinity" prefHeight="418.0" prefWidth="557.0" xmlns="http://javafx.com/javafx/8.0.171">
+   <children>
+      <Label layoutX="75.0" layoutY="52.0" prefHeight="54.0" prefWidth="250.0" text="New Customer Information">
+         <font>
+            <Font name="System Bold" size="18.0"/>
+         </font>
+      </Label>
+      <VBox layoutX="75.0" layoutY="125.0" prefHeight="224.0" prefWidth="124.0" spacing="27.0">
+         <children>
+            <Label text="Name"/>
+            <Label text="Phone"/>
+            <Label text="Email"/>
+            <Label text="Contact"/>
+            <Label text="Personal Photo"/>
+         </children>
+      </VBox>
+      <VBox layoutX="228.0" layoutY="125.0" prefHeight="224.0" prefWidth="301.0" spacing="15.0">
+         <children>
+            <TextField/>
+            <TextField layoutX="10.0" layoutY="10.0"/>
+            <TextField layoutX="10.0" layoutY="56.0"/>
+            <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="117.0" text="Upload"/>
+            <Button layoutX="10.0" layoutY="148.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="117.0"
+                    text="Upload"/>
+         </children>
+      </VBox>
+      <Button layoutX="421.0" layoutY="361.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="88.0" text="Cancel"/>
+      <Button layoutX="319.0" layoutY="361.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="88.0"
+              text="Register"/>
+   </children>
+</AnchorPane>
