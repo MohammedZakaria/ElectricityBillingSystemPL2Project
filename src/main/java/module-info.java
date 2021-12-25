@@ -9,6 +9,8 @@ module org.pl.electricitybillingsystempl2project {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
+    requires vavr;
+    requires com.fasterxml.jackson.databind;
 
     opens org.pl.electricitybillingsystempl2project to javafx.fxml;
     exports org.pl.electricitybillingsystempl2project;
