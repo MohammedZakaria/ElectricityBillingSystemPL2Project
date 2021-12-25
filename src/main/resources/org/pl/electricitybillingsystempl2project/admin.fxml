@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <TabPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
@@ -12,11 +15,11 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="603.0" prefWidth="1044.0">
                     <children>
                         <Button fx:id="adminCustExitBtn" layoutX="922.0" layoutY="618.0" mnemonicParsing="false"
-                                prefHeight="31.0" prefWidth="68.0" text="Exit"/>
+                                onAction="#exit" prefHeight="31.0" prefWidth="68.0" text="Exit"/>
                         <Button fx:id="adminCustAddNewCustBtn" layoutX="843.0" layoutY="48.0" mnemonicParsing="false"
-                                text="Add new Customer"/>
+                                onAction="#adminAddNewUser" text="Add new Customer"/>
                         <Button fx:id="adminCustSearchBtn" layoutX="37.0" layoutY="48.0" mnemonicParsing="false"
-                                prefHeight="31.0" prefWidth="109.0" text="Search"/>
+                                onAction="#adminCustomersSearch" prefHeight="31.0" prefWidth="109.0" text="Search"/>
                         <TextField fx:id="adminCustSearchBarTxt" layoutX="175.0" layoutY="48.0" prefHeight="31.0"
                                    prefWidth="649.0" promptText="Search"/>
                         <Label layoutX="175.0" layoutY="94.0" prefHeight="28.0" prefWidth="85.0" text="Search By"/>
@@ -42,20 +45,21 @@
                         <ScrollPane fx:id="adminCustScroll" layoutX="179.0" layoutY="322.0" prefHeight="351.0"
                                     prefWidth="652.0">
                             <content>
-                                <TableView fx:id="adminCustTable" prefHeight="346.0" prefWidth="626.0">
+                                <TableView fx:id="adminCustTable" prefHeight="346.0" prefWidth="635.0">
                                     <columns>
+                                        <TableColumn prefWidth="75.0" text="Region"/>
                                         <TableColumn fx:id="adminCustTableId" prefWidth="87.0" text="Id"/>
-                                        <TableColumn fx:id="adminCustTableName" prefWidth="120.0" text="Name"/>
-                                        <TableColumn fx:id="adminCustTableEmail" prefWidth="119.0" text="Email"/>
-                                        <TableColumn fx:id="adminCustTablePhone" prefWidth="114.0" text="Phone"/>
-                                        <TableColumn fx:id="adminCustTableMeterId" prefWidth="106.0" text="Meter Id"/>
-                                        <TableColumn fx:id="adminCustTableDetails" prefWidth="76.0" text="Details"/>
+                                        <TableColumn fx:id="adminCustTableName" prefWidth="73.0" text="Name"/>
+                                        <TableColumn fx:id="adminCustTableEmail" prefWidth="111.0" text="Email"/>
+                                        <TableColumn fx:id="adminCustTablePhone" prefWidth="79.0" text="Phone"/>
+                                        <TableColumn fx:id="adminCustTableMeterId" prefWidth="122.0" text="Meter Id"/>
+                                        <TableColumn fx:id="adminCustTableDetails" prefWidth="81.0" text="Details"/>
                                     </columns>
                                 </TableView>
                             </content>
                         </ScrollPane>
                         <Button fx:id="adminCustEditCustomerBtn" layoutX="843.0" layoutY="93.0" mnemonicParsing="false"
-                                prefHeight="31.0" prefWidth="146.0" text="Edit Customer"/>
+                                onAction="#adminEditCustomer" prefHeight="31.0" prefWidth="146.0" text="Edit Customer"/>
                     </children>
                 </AnchorPane>
             </content>
@@ -65,7 +69,7 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="603.0" prefWidth="1044.0">
                     <children>
                         <Button fx:id="adminUsersExit" layoutX="922.0" layoutY="618.0" mnemonicParsing="false"
-                                prefHeight="31.0" prefWidth="68.0" text="Exit"/>
+                                onAction="#exit" prefHeight="31.0" prefWidth="68.0" text="Exit"/>
                         <Button fx:id="adminUserAddNewUser" layoutX="843.0" layoutY="48.0" mnemonicParsing="false"
                                 prefHeight="31.0" prefWidth="136.0" text="Add new User"/>
                         <Button fx:id="adminUsersSearch" layoutX="37.0" layoutY="48.0" mnemonicParsing="false"
@@ -107,18 +111,29 @@
                 </AnchorPane>
             </content>
         </Tab>
-        <Tab text="Authorities"/>
-        <Tab fx:id="adminB" text="Bills           ">
+        <Tab text="Statistics         ">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <Label layoutX="455.0" layoutY="93.0" text="Label"/>
-                        <Label layoutX="455.0" layoutY="127.0" text="Label"/>
-                        <ChoiceBox layoutX="229.0" layoutY="99.0" prefWidth="150.0"/>
-                        <Button fx:id="adminBillsExit" layoutX="902.0" layoutY="648.0" mnemonicParsing="false"
-                                prefHeight="31.0" prefWidth="81.0" text="Exit"/>
-                        <Button layoutX="366.0" layoutY="324.0" mnemonicParsing="false" prefHeight="31.0"
-                                prefWidth="143.0" text="test"/>
+                        <Button fx:id="adminStatExit" layoutX="906.0" layoutY="646.0" mnemonicParsing="false"
+                                onAction="#exit" prefHeight="31.0" prefWidth="77.0" text="Exit"/>
+                        <ChoiceBox fx:id="adminStatisticsRegionChoiceBox" layoutX="133.0" layoutY="64.0"
+                                   prefHeight="31.0" prefWidth="203.0"/>
+                        <Label layoutX="76.0" layoutY="62.0" prefHeight="34.0" prefWidth="57.0" text="Region:"/>
+                        <AreaChart fx:id="adminStatChart" layoutX="76.0" layoutY="105.0" prefHeight="385.0"
+                                   prefWidth="500.0">
+                            <xAxis>
+                                <CategoryAxis side="BOTTOM"/>
+                            </xAxis>
+                            <yAxis>
+                                <NumberAxis side="LEFT"/>
+                            </yAxis>
+                        </AreaChart>
+                        <Label layoutX="664.0" layoutY="69.0" text="Tota Collected"/>
+                        <Label fx:id="adminStatisticsTotalData" layoutX="786.0" layoutY="69.0"
+                               text="Total Collected data"/>
+                        <Label layoutX="664.0" layoutY="106.0" text="Average"/>
+                        <Label fx:id="adminStatisticsAverageData" layoutX="786.0" layoutY="106.0" text="Average data"/>
                     </children>
                 </AnchorPane>
             </content>
@@ -127,19 +142,21 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <ScrollPane layoutX="161.0" layoutY="95.0" prefHeight="520.0" prefWidth="723.0"/>
-                        <Button layoutX="905.0" layoutY="646.0" mnemonicParsing="false" prefHeight="31.0"
-                                prefWidth="76.0" text="Exit"/>
-                    </children>
-                </AnchorPane>
-            </content>
-        </Tab>
-        <Tab text="Statistics         ">
-            <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                    <children>
-                        <Button fx:id="adminStatExit" layoutX="906.0" layoutY="646.0" mnemonicParsing="false"
-                                prefHeight="31.0" prefWidth="77.0" text="Exit"/>
+                        <ScrollPane layoutX="161.0" layoutY="95.0" prefHeight="520.0" prefWidth="723.0">
+                            <content>
+                                <TableView prefHeight="514.0" prefWidth="713.0">
+                                    <columns>
+                                        <TableColumn fx:id="adminComplainsCustId" prefWidth="107.0" text="Customer Id"/>
+                                        <TableColumn fx:id="adminComplainsName" prefWidth="78.0" text="Name"/>
+                                        <TableColumn fx:id="adminComplainsEmail" prefWidth="78.0" text="Email"/>
+                                        <TableColumn fx:id="adminCmplainsPhone" prefWidth="78.0" text="Phone"/>
+                                        <TableColumn fx:id="adminComplainsComplain" prefWidth="362.0" text="Complain"/>
+                                    </columns>
+                                </TableView>
+                            </content>
+                        </ScrollPane>
+                        <Button fx:id="adminComplainsExit" layoutX="905.0" layoutY="646.0" mnemonicParsing="false"
+                                onAction="#exit" prefHeight="31.0" prefWidth="76.0" text="Exit"/>
                     </children>
                 </AnchorPane>
             </content>
