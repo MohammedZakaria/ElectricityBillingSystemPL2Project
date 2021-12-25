@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 public class Admin {
     @FXML
     protected void Exit() {
-
+        System.exit(0);
     }
 
     @FXML

@@ -5,7 +5,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="510.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/8.0.171">
+            minWidth="-Infinity" prefHeight="510.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/8.0.171"
+            fx:controller="org.pl.electricitybillingsystempl2project.Controllers.OperatorCustomerDetails">
    <children>
       <VBox layoutX="78.0" layoutY="90.0" prefHeight="158.0" prefWidth="85.0">
          <children>
@@ -39,13 +40,14 @@
       <ImageView fx:id="custDetailsContractPNG" fitHeight="158.0" fitWidth="187.0" layoutX="71.0" layoutY="264.0"
                  pickOnBounds="true" preserveRatio="true"/>
       <Button fx:id="operatorCustDetailsDownloadContract" layoutX="70.0" layoutY="444.0" mnemonicParsing="false"
-              text="Download Contract"/>
+              onAction="#operatorCustomerDetailsDownloadContract" text="Download Contract"/>
       <AnchorPane layoutX="459.0" layoutY="89.0" prefHeight="62.0" prefWidth="296.0">
          <children>
             <Button fx:id="operatorCustDetailsPrintBill" layoutX="13.0" layoutY="26.0" mnemonicParsing="false"
-                    text="Print Bill"/>
+                    onAction="#operatorCustomerDetailsPrintBill" text="Print Bill"/>
             <Button fx:id="operatorCustDetailsCollectPayment" layoutX="110.0" layoutY="26.0" mnemonicParsing="false"
-                    prefHeight="31.0" prefWidth="164.0" text="Collect Payment"/>
+                    onAction="#operatorCustomerDetailsCollectPayment" prefHeight="31.0" prefWidth="164.0"
+                    text="Collect Payment"/>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="459.0" layoutY="155.0" prefHeight="74.0" prefWidth="418.0">
@@ -53,12 +55,13 @@
             <TextField fx:id="operatorCustDetailsCustReading" layoutX="226.0" layoutY="14.0" prefHeight="31.0"
                        prefWidth="164.0" promptText="Customer's Reading"/>
             <Button fx:id="operatorCustDetailsValidate" layoutX="14.0" layoutY="14.0" mnemonicParsing="false"
-                    text="Validate Real Consumption"/>
+                    onAction="#operatorCustomerDetailsValidateRealConsumption" text="Validate Real Consumption"/>
          </children>
       </AnchorPane>
       <Button fx:id="operatorCustDetailsCancel" layoutX="752.0" layoutY="444.0" mnemonicParsing="false"
-              prefHeight="31.0" prefWidth="95.0" text="Cancel"/>
+              onAction="#operatorCustomerDetailsCancel" prefHeight="31.0" prefWidth="95.0" text="Cancel"/>
       <Button fx:id="operatorCustomerDetailsCancelSubscribtion" layoutX="559.0" layoutY="444.0" mnemonicParsing="false"
-              prefHeight="31.0" prefWidth="142.0" text="Cancel Suscribtion"/>
+              onAction="#operatorCustomerDetailsCancelSuscribtion" prefHeight="31.0" prefWidth="142.0"
+              text="Cancel Suscribtion"/>
    </children>
 </AnchorPane>

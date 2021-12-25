@@ -8,18 +8,18 @@
 <TabPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
          minWidth="-Infinity" prefHeight="748.0" prefWidth="1044.0" tabClosingPolicy="UNAVAILABLE"
          xmlns="http://javafx.com/javafx/8.0.171"
-         fx:controller="org.pl.electricitybillingsystempl2project.HelloController">
+         fx:controller="org.pl.electricitybillingsystempl2project.Controllers.Admin">
     <tabs>
         <Tab text="Customers">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="603.0" prefWidth="1044.0">
                     <children>
                         <Button fx:id="adminCustExitBtn" layoutX="922.0" layoutY="618.0" mnemonicParsing="false"
-                                prefHeight="31.0" prefWidth="68.0" text="Exit"/>
+                                onAction="#Exit" prefHeight="31.0" prefWidth="68.0" text="Exit"/>
                         <Button fx:id="adminCustAddNewCustBtn" layoutX="843.0" layoutY="48.0" mnemonicParsing="false"
-                                text="Add new Customer"/>
+                                onAction="#adminAddCustomer" text="Add new Customer"/>
                         <Button fx:id="adminCustSearchBtn" layoutX="37.0" layoutY="48.0" mnemonicParsing="false"
-                                prefHeight="31.0" prefWidth="109.0" text="Search"/>
+                                onAction="#adminCustomersSearch" prefHeight="31.0" prefWidth="109.0" text="Search"/>
                         <TextField fx:id="adminCustSearchBarTxt" layoutX="175.0" layoutY="48.0" prefHeight="31.0"
                                    prefWidth="649.0" promptText="Search"/>
                         <Label layoutX="175.0" layoutY="94.0" prefHeight="28.0" prefWidth="85.0" text="Search By"/>
@@ -59,7 +59,7 @@
                             </content>
                         </ScrollPane>
                         <Button fx:id="adminCustEditCust" layoutX="843.0" layoutY="93.0" mnemonicParsing="false"
-                                prefHeight="31.0" prefWidth="115.0" text="Edit Customer"/>
+                                onAction="#adminEditCustomer" prefHeight="31.0" prefWidth="115.0" text="Edit Customer"/>
                     </children>
                 </AnchorPane>
             </content>
@@ -69,11 +69,11 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="603.0" prefWidth="1044.0">
                     <children>
                         <Button fx:id="adminUsersExit" layoutX="922.0" layoutY="618.0" mnemonicParsing="false"
-                                prefHeight="31.0" prefWidth="68.0" text="Exit"/>
+                                onAction="#Exit" prefHeight="31.0" prefWidth="68.0" text="Exit"/>
                         <Button fx:id="adminUserAddNewUser" layoutX="843.0" layoutY="48.0" mnemonicParsing="false"
-                                prefHeight="31.0" prefWidth="136.0" text="Add new User"/>
+                                onAction="#adminAddNewUser" prefHeight="31.0" prefWidth="136.0" text="Add new User"/>
                         <Button fx:id="adminUsersSearch" layoutX="37.0" layoutY="48.0" mnemonicParsing="false"
-                                prefHeight="31.0" prefWidth="109.0" text="Search"/>
+                                onAction="#adminUsersSearch" prefHeight="31.0" prefWidth="109.0" text="Search"/>
                         <TextField fx:id="adminUserSearchBar" layoutX="175.0" layoutY="48.0" prefHeight="31.0"
                                    prefWidth="649.0" promptText="Search"/>
                         <Label layoutX="175.0" layoutY="94.0" prefHeight="28.0" prefWidth="85.0" text="Search By"/>
@@ -106,7 +106,7 @@
                             </content>
                         </ScrollPane>
                         <Button fx:id="adminUserEditUser" layoutX="843.0" layoutY="93.0" mnemonicParsing="false"
-                                prefHeight="31.0" prefWidth="135.0" text="Edit User"/>
+                                onAction="#adminEditUser" prefHeight="31.0" prefWidth="135.0" text="Edit User"/>
                     </children>
                 </AnchorPane>
             </content>
@@ -116,7 +116,7 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
                         <Button fx:id="adminStatExit" layoutX="906.0" layoutY="646.0" mnemonicParsing="false"
-                                prefHeight="31.0" prefWidth="77.0" text="Exit"/>
+                                onAction="#Exit" prefHeight="31.0" prefWidth="77.0" text="Exit"/>
                         <ChoiceBox fx:id="adminStatisticsRegionChoiceBox" layoutX="133.0" layoutY="64.0"
                                    prefHeight="31.0" prefWidth="203.0"/>
                         <Label layoutX="76.0" layoutY="62.0" prefHeight="34.0" prefWidth="57.0" text="Region:"/>
@@ -156,7 +156,7 @@
                             </content>
                         </ScrollPane>
                         <Button fx:id="adminComplainsExit" layoutX="905.0" layoutY="646.0" mnemonicParsing="false"
-                                prefHeight="31.0" prefWidth="76.0" text="Exit"/>
+                                onAction="#Exit" prefHeight="31.0" prefWidth="76.0" text="Exit"/>
                     </children>
                 </AnchorPane>
             </content>

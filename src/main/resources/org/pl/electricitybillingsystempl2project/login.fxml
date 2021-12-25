@@ -5,7 +5,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="364.0" prefWidth="493.0" xmlns="http://javafx.com/javafx/8.0.171">
+            minWidth="-Infinity" prefHeight="364.0" prefWidth="493.0" xmlns="http://javafx.com/javafx/8.0.171"
+            fx:controller="org.pl.electricitybillingsystempl2project.Controllers.Login">
     <children>
         <AnchorPane prefHeight="364.0" prefWidth="493.0">
             <children>
@@ -18,10 +19,10 @@
                             style="-fx-background-color: #3BFF47;"/>
                 <TextField fx:id="loginEmailTxt" layoutX="146.0" layoutY="119.0" prefHeight="31.0" prefWidth="202.0"
                            promptText="Email"/>
-                <Button fx:id="loginLoginBtn" layoutX="146.0" layoutY="212.0" mnemonicParsing="false" prefHeight="31.0"
-                        prefWidth="85.0" text="Login"/>
+                <Button fx:id="loginLoginBtn" layoutX="146.0" layoutY="212.0" mnemonicParsing="false" onAction="#login"
+                        prefHeight="31.0" prefWidth="85.0" text="Login"/>
                 <Button fx:id="loginRegisterBtn" layoutX="263.0" layoutY="212.0" mnemonicParsing="false"
-                        prefHeight="31.0" prefWidth="85.0" text="Register"/>
+                        onAction="#register" prefHeight="31.0" prefWidth="85.0" text="Register"/>
                 <Label contentDisplay="TOP" layoutX="154.0" layoutY="254.0" prefHeight="31.0" prefWidth="85.0"
                        text="Login As :"/>
                 <VBox layoutX="263.0" layoutY="259.0" prefHeight="77.0" prefWidth="105.0" spacing="4.0">

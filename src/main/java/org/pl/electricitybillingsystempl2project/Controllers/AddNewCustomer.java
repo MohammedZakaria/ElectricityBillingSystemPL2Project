@@ -4,12 +4,12 @@ import javafx.fxml.FXML;
 
 public class AddNewCustomer {
     @FXML
-    protected void registerCustomer() {
+    protected void cancelCustomer() {
 
     }
 
     @FXML
-    protected void cancelCustomer() {
+    protected void registerCustomer() {
 
     }
 
