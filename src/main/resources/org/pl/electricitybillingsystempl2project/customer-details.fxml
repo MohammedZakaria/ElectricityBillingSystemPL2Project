@@ -16,6 +16,7 @@
             <Label text="Meter Id"/>
             <Label layoutX="10.0" layoutY="115.0" text="Meter Status"/>
             <Label layoutX="10.0" layoutY="94.0" text="Bill"/>
+            <Label text="Region"/>
          </children>
       </VBox>
       <VBox layoutX="177.0" layoutY="90.0" prefHeight="116.0" prefWidth="263.0">
@@ -27,6 +28,7 @@
             <Label fx:id="custMeterId" text="Meter Id"/>
             <Label fx:id="custMeterStatus" layoutX="10.0" layoutY="115.0" text="Meter Status"/>
             <Label fx:id="custMeterId1" layoutX="10.0" layoutY="94.0" text="Bill"/>
+            <Label fx:id="custRegion" text="Region"/>
          </children>
       </VBox>
       <Label layoutX="78.0" layoutY="39.0" prefHeight="30.0" prefWidth="173.0" text="Customer Details">
@@ -34,7 +36,7 @@
             <Font name="System Bold" size="20.0"/>
          </font>
       </Label>
-      <ImageView fx:id="custDetailsContract" fitHeight="158.0" fitWidth="187.0" layoutX="69.0" layoutY="254.0"
+      <ImageView fx:id="custDetailsContractPNG" fitHeight="158.0" fitWidth="187.0" layoutX="70.0" layoutY="266.0"
                  pickOnBounds="true" preserveRatio="true"/>
       <Button fx:id="custDetailsDownloadContract" layoutX="69.0" layoutY="444.0" mnemonicParsing="false"
               text="Download Contract"/>
@@ -64,7 +66,5 @@
       </AnchorPane>
       <Button fx:id="custDetailsCancel" layoutX="752.0" layoutY="444.0" mnemonicParsing="false" prefHeight="31.0"
               prefWidth="95.0" text="Cancel"/>
-      <Label layoutX="78.0" layoutY="237.0" text="Region"/>
-      <Label fx:id="custRegion" layoutX="177.0" layoutY="237.0" text="Region"/>
    </children>
 </AnchorPane>

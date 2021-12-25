@@ -16,17 +16,17 @@
                 </Label>
                 <AnchorPane layoutX="30.0" layoutY="67.0" prefHeight="5.0" prefWidth="85.0"
                             style="-fx-background-color: #3BFF47;"/>
-                <TextField fx:id="loginEmail" layoutX="146.0" layoutY="119.0" prefHeight="31.0" prefWidth="202.0"
+                <TextField fx:id="loginEmailTxt" layoutX="146.0" layoutY="119.0" prefHeight="31.0" prefWidth="202.0"
                            promptText="Email"/>
-                <Button fx:id="loginLogin" layoutX="146.0" layoutY="212.0" mnemonicParsing="false" prefHeight="31.0"
+                <Button fx:id="loginLoginBtn" layoutX="146.0" layoutY="212.0" mnemonicParsing="false" prefHeight="31.0"
                         prefWidth="85.0" text="Login"/>
-                <Button fx:id="loginRegister" layoutX="263.0" layoutY="212.0" mnemonicParsing="false" prefHeight="31.0"
-                        prefWidth="85.0" text="Register"/>
+                <Button fx:id="loginRegisterBtn" layoutX="263.0" layoutY="212.0" mnemonicParsing="false"
+                        prefHeight="31.0" prefWidth="85.0" text="Register"/>
                 <Label contentDisplay="TOP" layoutX="154.0" layoutY="254.0" prefHeight="31.0" prefWidth="85.0"
                        text="Login As :"/>
                 <VBox layoutX="263.0" layoutY="259.0" prefHeight="77.0" prefWidth="105.0" spacing="4.0">
                     <children>
-                        <RadioButton fx:id="loginAdmin" mnemonicParsing="false" text="Admin">
+                        <RadioButton fx:id="loginAdminRB" mnemonicParsing="false" text="Admin">
                             <font>
                                 <Font size="14.0"/>
                             </font>
@@ -34,20 +34,20 @@
                                 <ToggleGroup fx:id="loginAs"/>
                             </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="loginOp" mnemonicParsing="false" text="Operator" toggleGroup="$loginAs">
+                        <RadioButton fx:id="loginOpRB" mnemonicParsing="false" text="Operator" toggleGroup="$loginAs">
                             <font>
                                 <Font size="14.0"/>
                             </font>
                         </RadioButton>
-                        <RadioButton fx:id="LoginCust" mnemonicParsing="false" text="Customer" toggleGroup="$loginAs">
+                        <RadioButton fx:id="loginCustRB" mnemonicParsing="false" text="Customer" toggleGroup="$loginAs">
                             <font>
                                 <Font size="14.0"/>
                             </font>
                         </RadioButton>
                     </children>
                 </VBox>
-                <PasswordField fx:id="loginPassword" layoutX="146.0" layoutY="167.0" prefHeight="31.0" prefWidth="202.0"
-                               promptText="**********"/>
+                <PasswordField fx:id="loginPasswordTxt" layoutX="146.0" layoutY="167.0" prefHeight="31.0"
+                               prefWidth="202.0" promptText="**********"/>
             </children>
         </AnchorPane>
     </children>
