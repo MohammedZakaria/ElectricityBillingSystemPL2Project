@@ -11,13 +11,13 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="603.0" prefWidth="1044.0">
                     <children>
-                        <Button fx:id="adminCustExit" layoutX="922.0" layoutY="618.0" mnemonicParsing="false"
+                        <Button fx:id="adminCustExitBtn" layoutX="922.0" layoutY="618.0" mnemonicParsing="false"
                                 prefHeight="31.0" prefWidth="68.0" text="Exit"/>
-                        <Button fx:id="adminCustAddNewCust" layoutX="843.0" layoutY="48.0" mnemonicParsing="false"
+                        <Button fx:id="adminCustAddNewCustBtn" layoutX="843.0" layoutY="48.0" mnemonicParsing="false"
                                 text="Add new Customer"/>
-                        <Button fx:id="adminCustSearch" layoutX="37.0" layoutY="48.0" mnemonicParsing="false"
+                        <Button fx:id="adminCustSearchBtn" layoutX="37.0" layoutY="48.0" mnemonicParsing="false"
                                 prefHeight="31.0" prefWidth="109.0" text="Search"/>
-                        <TextField fx:id="adminCustSearchBar" layoutX="175.0" layoutY="48.0" prefHeight="31.0"
+                        <TextField fx:id="adminCustSearchBarTxt" layoutX="175.0" layoutY="48.0" prefHeight="31.0"
                                    prefWidth="649.0" promptText="Search"/>
                         <Label layoutX="175.0" layoutY="94.0" prefHeight="28.0" prefWidth="85.0" text="Search By"/>
                         <VBox layoutX="256.0" layoutY="101.0" prefHeight="118.0" prefWidth="163.0" spacing="10.0">
@@ -39,9 +39,10 @@
                                              mnemonicParsing="false" text="Region" toggleGroup="$searchCust"/>
                             </children>
                         </VBox>
-                        <ScrollPane layoutX="179.0" layoutY="322.0" prefHeight="351.0" prefWidth="652.0">
+                        <ScrollPane fx:id="adminCustScroll" layoutX="179.0" layoutY="322.0" prefHeight="351.0"
+                                    prefWidth="652.0">
                             <content>
-                                <TableView prefHeight="346.0" prefWidth="626.0">
+                                <TableView fx:id="adminCustTable" prefHeight="346.0" prefWidth="626.0">
                                     <columns>
                                         <TableColumn fx:id="adminCustTableId" prefWidth="87.0" text="Id"/>
                                         <TableColumn fx:id="adminCustTableName" prefWidth="120.0" text="Name"/>
@@ -53,7 +54,7 @@
                                 </TableView>
                             </content>
                         </ScrollPane>
-                        <Button fx:id="adminCustEditCustomer" layoutX="843.0" layoutY="93.0" mnemonicParsing="false"
+                        <Button fx:id="adminCustEditCustomerBtn" layoutX="843.0" layoutY="93.0" mnemonicParsing="false"
                                 prefHeight="31.0" prefWidth="146.0" text="Edit Customer"/>
                     </children>
                 </AnchorPane>
@@ -89,7 +90,7 @@
                         </VBox>
                         <ScrollPane layoutX="179.0" layoutY="322.0" prefHeight="351.0" prefWidth="652.0">
                             <content>
-                                <TableView prefHeight="346.0" prefWidth="626.0">
+                                <TableView fx:id="adminUsersTable" prefHeight="346.0" prefWidth="626.0">
                                     <columns>
                                         <TableColumn fx:id="adminUsersTableId" prefWidth="87.0" text="Id"/>
                                         <TableColumn fx:id="adminUsersTableName" prefWidth="120.0" text="Name"/>
@@ -116,8 +117,8 @@
                         <ChoiceBox layoutX="229.0" layoutY="99.0" prefWidth="150.0"/>
                         <Button fx:id="adminBillsExit" layoutX="902.0" layoutY="648.0" mnemonicParsing="false"
                                 prefHeight="31.0" prefWidth="81.0" text="Exit"/>
-                        <Button layoutX="366.0" layoutY="324.0" mnemonicParsing="false" onAction="#onHelloButtonClick"
-                                prefHeight="31.0" prefWidth="143.0" text="test"/>
+                        <Button layoutX="366.0" layoutY="324.0" mnemonicParsing="false" prefHeight="31.0"
+                                prefWidth="143.0" text="test"/>
                     </children>
                 </AnchorPane>
             </content>

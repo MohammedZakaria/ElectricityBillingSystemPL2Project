@@ -36,7 +36,7 @@
             <Font name="System Bold" size="20.0"/>
          </font>
       </Label>
-      <ImageView fx:id="custDetailsContract" fitHeight="158.0" fitWidth="187.0" layoutX="71.0" layoutY="264.0"
+      <ImageView fx:id="custDetailsContractPNG" fitHeight="158.0" fitWidth="187.0" layoutX="71.0" layoutY="264.0"
                  pickOnBounds="true" preserveRatio="true"/>
       <Button fx:id="operatorCustDetailsDownloadContract" layoutX="70.0" layoutY="444.0" mnemonicParsing="false"
               text="Download Contract"/>
