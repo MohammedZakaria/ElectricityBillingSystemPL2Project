@@ -5,7 +5,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="510.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/8.0.171">
+            minWidth="-Infinity" prefHeight="510.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/8.0.171"
+            fx:controller="org.pl.electricitybillingsystempl2project.Controllers.CustomerDetails">
    <children>
       <VBox layoutX="78.0" layoutY="90.0" prefHeight="147.0" prefWidth="85.0">
          <children>
@@ -39,11 +40,11 @@
       <ImageView fx:id="custDetailsContractPNG" fitHeight="158.0" fitWidth="187.0" layoutX="70.0" layoutY="266.0"
                  pickOnBounds="true" preserveRatio="true"/>
       <Button fx:id="custDetailsDownloadContract" layoutX="69.0" layoutY="444.0" mnemonicParsing="false"
-              text="Download Contract"/>
+              onAction="#customerDetailsDownloadContract" text="Download Contract"/>
       <AnchorPane layoutX="459.0" layoutY="237.0" prefHeight="169.0" prefWidth="293.0">
          <children>
             <Button fx:id="custDetailsSendComplain" layoutX="158.0" layoutY="131.0" mnemonicParsing="false"
-                    text="Send Complain"/>
+                    onAction="#customerDetailsSendComplain" text="Send Complain"/>
             <TextArea fx:id="custDetailsComplainQuestion" layoutX="14.0" layoutY="21.0" prefHeight="103.0"
                       prefWidth="276.0" promptText="Whats's your Question"/>
          </children>
@@ -51,9 +52,9 @@
       <AnchorPane layoutX="459.0" layoutY="89.0" prefHeight="62.0" prefWidth="200.0">
          <children>
             <Button fx:id="custDetailsPrintBill" layoutX="13.0" layoutY="26.0" mnemonicParsing="false"
-                    text="Print Bill"/>
-            <Button fx:id="custDetailsPayBill" layoutX="110.0" layoutY="26.0" mnemonicParsing="false" prefHeight="31.0"
-                    prefWidth="76.0" text="Pay Bill"/>
+                    onAction="#customerDetailsPrintBill" text="Print Bill"/>
+            <Button fx:id="custDetailsPayBill" layoutX="110.0" layoutY="26.0" mnemonicParsing="false"
+                    onAction="#customerDetailsPayBill" prefHeight="31.0" prefWidth="76.0" text="Pay Bill"/>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="459.0" layoutY="155.0" prefHeight="74.0" prefWidth="418.0">
@@ -61,10 +62,10 @@
             <TextField fx:id="custDetailsCustReading" layoutX="147.0" layoutY="36.0" prefHeight="31.0" prefWidth="243.0"
                        promptText="Your Reading"/>
             <Button fx:id="custDetailsEnterReadingBtn" layoutX="14.0" layoutY="36.0" mnemonicParsing="false"
-                    text="Enter Reading"/>
+                    onAction="#customerDetailsEnterReading" text="Enter Reading"/>
          </children>
       </AnchorPane>
-      <Button fx:id="custDetailsCancel" layoutX="752.0" layoutY="444.0" mnemonicParsing="false" prefHeight="31.0"
-              prefWidth="95.0" text="Cancel"/>
+      <Button fx:id="custDetailsCancel" layoutX="752.0" layoutY="444.0" mnemonicParsing="false"
+              onAction="#customerDetailsCancel" prefHeight="31.0" prefWidth="95.0" text="Cancel"/>
    </children>
 </AnchorPane>

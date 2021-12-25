@@ -5,7 +5,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" minHeight="0.0" minWidth="0.0" prefHeight="736.0" prefWidth="903.0"
-            xmlns="http://javafx.com/javafx/8.0.171">
+            xmlns="http://javafx.com/javafx/8.0.171"
+            fx:controller="org.pl.electricitybillingsystempl2project.Controllers.UserEdit">
     <children>
         <RadioButton fx:id="UserEditTypeCust" layoutX="227.0" layoutY="213.0" mnemonicParsing="false" text="Customer">
             <toggleGroup>
@@ -15,8 +16,8 @@
         <RadioButton fx:id="UserEditTypeOp" layoutX="355.0" layoutY="213.0" mnemonicParsing="false" text="Operator"/>
         <RadioButton fx:id="UserEditTypeRemove" layoutX="358.0" layoutY="265.0" mnemonicParsing="false" text="Remove"/>
         <RadioButton fx:id="UserEditTypeUpdate" layoutX="227.0" layoutY="265.0" mnemonicParsing="false" text="Update"/>
-        <Button fx:id="userEditApplyChanges" layoutX="513.0" layoutY="659.0" mnemonicParsing="false" prefHeight="31.0"
-                prefWidth="142.0" text="Apply Changes"/>
+        <Button fx:id="userEditApplyChanges" layoutX="513.0" layoutY="659.0" mnemonicParsing="false"
+                onAction="#userEditApplyChanges" prefHeight="31.0" prefWidth="142.0" text="Apply Changes"/>
         <Label layoutX="285.0" layoutY="29.0" prefHeight="37.0" prefWidth="290.0" text="Update and Delete Users">
             <font>
                 <Font name="System Bold" size="24.0"/>
@@ -52,10 +53,10 @@
                 <TextField fx:id="userEditRegion" promptText="Region"/>
             </children>
         </VBox>
-        <Button fx:id="userEditExit" layoutX="775.0" layoutY="659.0" mnemonicParsing="false" prefHeight="31.0"
-                prefWidth="82.0" text="Exit"/>
-        <Button fx:id="userEditCancel" layoutX="676.0" layoutY="659.0" mnemonicParsing="false" prefHeight="31.0"
-                prefWidth="81.0" text="Cancel"/>
+        <Button fx:id="userEditExit" layoutX="775.0" layoutY="659.0" mnemonicParsing="false" onAction="#Exit"
+                prefHeight="31.0" prefWidth="82.0" text="Exit"/>
+        <Button fx:id="userEditCancel" layoutX="676.0" layoutY="659.0" mnemonicParsing="false"
+                onAction="#userEditCancel" prefHeight="31.0" prefWidth="81.0" text="Cancel"/>
         <TextField fx:id="userEditUserId" layoutX="214.0" layoutY="149.0" prefHeight="31.0" prefWidth="370.0"
                    promptText="User Id"/>
         <Label layoutX="70.0" layoutY="151.0" text="User Id">

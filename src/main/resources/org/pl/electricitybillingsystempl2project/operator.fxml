@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <TabPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
          minWidth="-Infinity" prefHeight="628.0" prefWidth="814.0" tabClosingPolicy="UNAVAILABLE"
-         xmlns="http://javafx.com/javafx/8.0.171">
+         xmlns="http://javafx.com/javafx/8.0.171"
+         fx:controller="org.pl.electricitybillingsystempl2project.Controllers.Operator">
     <tabs>
         <Tab fx:id="operatorCust" text="Customers">
             <content>
@@ -17,7 +17,7 @@
                         <Button fx:id="adminCustAddNewCust" layoutX="843.0" layoutY="48.0" mnemonicParsing="false"
                                 text="Add new Customer"/>
                         <Button fx:id="operatorCustSearch" layoutX="37.0" layoutY="48.0" mnemonicParsing="false"
-                                prefHeight="31.0" prefWidth="109.0" text="Search"/>
+                                onAction="#operatorCustomerSearch" prefHeight="31.0" prefWidth="109.0" text="Search"/>
                         <TextField fx:id="operatorCustSearchBar" layoutX="176.0" layoutY="48.0" prefHeight="31.0"
                                    prefWidth="525.0" promptText="Search"/>
                         <Label layoutX="175.0" layoutY="94.0" prefHeight="28.0" prefWidth="85.0" text="Search By"/>
@@ -64,7 +64,7 @@
                             </content>
                         </ScrollPane>
                         <Button fx:id="operatorCustExit" layoutX="652.0" layoutY="530.0" mnemonicParsing="false"
-                                prefHeight="31.0" prefWidth="85.0" text="Exit"/>
+                                onAction="#Exit" prefHeight="31.0" prefWidth="85.0" text="Exit"/>
                     </children>
                 </AnchorPane>
             </content>
@@ -81,10 +81,10 @@
                             </columns>
                         </TableView>
                         <Button fx:id="operatorViewRegionBillsBillsByRegion" layoutX="54.0" layoutY="80.0"
-                                mnemonicParsing="false" prefHeight="31.0" prefWidth="231.0"
-                                text="View Bills By Region"/>
+                                mnemonicParsing="false" onAction="#operatorBillsByRegionPrint" prefHeight="31.0"
+                                prefWidth="231.0" text="View Bills By Region"/>
                         <Button fx:id="OperatorRegionBillsExit" layoutX="648.0" layoutY="525.0" mnemonicParsing="false"
-                                prefHeight="31.0" prefWidth="83.0" text="Exit"/>
+                                onAction="#Exit" prefHeight="31.0" prefWidth="83.0" text="Exit"/>
                     </children>
                 </AnchorPane>
             </content>
@@ -94,8 +94,8 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="389.0" prefWidth="885.0">
                     <children>
                         <Button fx:id="operatorCustBillsViewBillsByMeterId" layoutX="75.0" layoutY="105.0"
-                                mnemonicParsing="false" prefHeight="31.0" prefWidth="197.0"
-                                text="view bills by Meter Id"/>
+                                mnemonicParsing="false" onAction="#operatorBillsByMeterIdPrint" prefHeight="31.0"
+                                prefWidth="197.0" text="view bills by Meter Id"/>
                         <TableView fx:id="operatorCustBillsTable" layoutX="75.0" layoutY="162.0" prefHeight="301.0"
                                    prefWidth="439.0">
                             <columns>
@@ -104,7 +104,7 @@
                             </columns>
                         </TableView>
                         <Button fx:id="operatorCustBillsExit" layoutX="659.0" layoutY="522.0" mnemonicParsing="false"
-                                prefHeight="31.0" prefWidth="103.0" text="Exit"/>
+                                onAction="#Exit" prefHeight="31.0" prefWidth="103.0" text="Exit"/>
                     </children>
                 </AnchorPane>
             </content>

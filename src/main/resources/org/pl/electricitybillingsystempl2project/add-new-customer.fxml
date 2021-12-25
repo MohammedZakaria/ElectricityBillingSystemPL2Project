@@ -5,7 +5,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="544.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/8.0.171">
+            minWidth="-Infinity" prefHeight="544.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/8.0.171"
+            fx:controller="org.pl.electricitybillingsystempl2project.Controllers.AddNewCustomer">
    <children>
       <Label layoutX="74.0" layoutY="24.0" prefHeight="54.0" prefWidth="250.0" text="New Customer Information">
          <font>
@@ -32,15 +33,15 @@
             <PasswordField fx:id="addNewCustPassword" promptText="**********"/>
             <PasswordField fx:id="addNewCustConfirmPassword" promptText="**********"/>
             <ChoiceBox id="addNewCustRegion" fx:id="addNewCustRegion" prefHeight="31.0" prefWidth="141.0"/>
-            <Button fx:id="addNewCustContractUpload" mnemonicParsing="false" prefHeight="31.0" prefWidth="117.0"
-                    text="Upload"/>
-            <Button fx:id="addNewCustPhotoUpload" layoutX="10.0" layoutY="148.0" mnemonicParsing="false"
+            <Button fx:id="addNewCustContractUpload" mnemonicParsing="false" onAction="#uploadContract"
                     prefHeight="31.0" prefWidth="117.0" text="Upload"/>
+            <Button fx:id="addNewCustPhotoUpload" layoutX="10.0" layoutY="148.0" mnemonicParsing="false"
+                    onAction="#uploadPhoto" prefHeight="31.0" prefWidth="117.0" text="Upload"/>
          </children>
       </VBox>
-      <Button fx:id="addNewCustCancel" layoutX="582.0" layoutY="473.0" mnemonicParsing="false" prefHeight="31.0"
-              prefWidth="88.0" text="Cancel"/>
-      <Button fx:id="addNewCustRegister" layoutX="465.0" layoutY="473.0" mnemonicParsing="false" prefHeight="31.0"
-              prefWidth="88.0" text="Register"/>
+      <Button fx:id="addNewCustCancel" layoutX="582.0" layoutY="473.0" mnemonicParsing="false"
+              onAction="#cancelCustomer" prefHeight="31.0" prefWidth="88.0" text="Cancel"/>
+      <Button fx:id="addNewCustRegister" layoutX="465.0" layoutY="473.0" mnemonicParsing="false"
+              onAction="#registerCustomer" prefHeight="31.0" prefWidth="88.0" text="Register"/>
    </children>
 </AnchorPane>
