@@ -31,7 +31,8 @@ String confirmPassword=confirm_passwordTxt.getText();
                     .onFailure(t->   new Alert(Alert.AlertType.ERROR, "Not save Operator").show());
         }else
             new Alert(Alert.AlertType.ERROR, "Confirm Password should be like password ").show();
-        
+        ControllersUtils.openPage("operator.fxml","operator");
+        ControllersUtils.closePageWithNode(nameTxt);
     }
 
     @FXML
