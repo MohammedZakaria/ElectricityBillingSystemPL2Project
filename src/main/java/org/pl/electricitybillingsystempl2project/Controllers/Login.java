@@ -2,6 +2,7 @@ package org.pl.electricitybillingsystempl2project.Controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
@@ -29,7 +30,8 @@ public class Login {
 
     @FXML
     protected void register() {
-
+        openPage("add-new-customer.fxml","customer");
+        closeStageWithNode(loginEmailTxt);
     }
 
     @FXML
@@ -54,8 +56,7 @@ public class Login {
                     if (users.size() == 1)
                         if (Objects.equals(users.get(0).getPassword(), password)) {
                             goToUserPage(userType);
-                            Stage currStage = (Stage) loginPasswordTxt.getScene().getWindow();
-                            currStage.close();
+                            closeStageWithNode(loginPasswordTxt);
                             return;
                         }
                     new Alert(Alert.AlertType.ERROR, "username or password is invalid").show();
@@ -64,6 +65,11 @@ public class Login {
                     new Alert(Alert.AlertType.ERROR, "something went wrong").show();
                 }).get()
         ;
+    }
+
+    private void closeStageWithNode(Node node) {
+        Stage currStage = (Stage) node.getScene().getWindow();
+        currStage.close();
     }
 
     private void goToUserPage(String userType) {
