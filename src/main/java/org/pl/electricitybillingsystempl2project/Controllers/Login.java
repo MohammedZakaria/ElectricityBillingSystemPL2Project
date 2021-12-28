@@ -1,19 +1,13 @@
 package org.pl.electricitybillingsystempl2project.Controllers;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
-import org.pl.electricitybillingsystempl2project.HelloApplication;
 import org.pl.electricitybillingsystempl2project.entities.Admin;
 import org.pl.electricitybillingsystempl2project.entities.Customer;
 import org.pl.electricitybillingsystempl2project.entities.User;
 import org.pl.electricitybillingsystempl2project.entitymanager.EntityManager;
 import org.pl.electricitybillingsystempl2project.entitymanager.EntityManagerFactory;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
@@ -30,8 +24,8 @@ public class Login {
 
     @FXML
     protected void register() {
-        openPage("add-new-customer.fxml","customer");
-        closeStageWithNode(loginEmailTxt);
+        ControllersUtils.openPage("add-new-customer.fxml","customer");
+        ControllersUtils.closePageWithNode(loginEmailTxt);
     }
 
     @FXML
@@ -56,7 +50,7 @@ public class Login {
                     if (users.size() == 1)
                         if (Objects.equals(users.get(0).getPassword(), password)) {
                             goToUserPage(userType);
-                            closeStageWithNode(loginPasswordTxt);
+                            ControllersUtils.closePageWithNode(loginPasswordTxt);
                             return;
                         }
                     new Alert(Alert.AlertType.ERROR, "username or password is invalid").show();
@@ -67,37 +61,18 @@ public class Login {
         ;
     }
 
-    private void closeStageWithNode(Node node) {
-        Stage currStage = (Stage) node.getScene().getWindow();
-        currStage.close();
-    }
 
     private void goToUserPage(String userType) {
         switch (userType) {
             case "admin" ->
-                    openPage("admin.fxml", "admin");
+                    ControllersUtils.openPage("admin.fxml", "admin");
             case "operator" ->
-                    openPage("operator.fxml", "operator");
+                    ControllersUtils.openPage("operator.fxml", "operator");
             case "customer" ->
-                    openPage("customer-details.fxml", "customer");
+                    ControllersUtils.openPage("customer-details.fxml", "customer");
 
         }
     }
 
-    private void openPage(String fxmlPath, String title) {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxmlPath));
-        Scene scene = null;
-        try {
-            scene = new Scene(fxmlLoader.load());
-        } catch (IOException e) {
-            e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR, "an error occurred while opening the window").show();
-        }
-        stage.setTitle(title);
-        stage.setResizable(false);
-        stage.setScene(scene);
-        stage.show();
-    }
 
 }
