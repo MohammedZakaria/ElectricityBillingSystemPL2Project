@@ -4,7 +4,7 @@
  */
 package org.pl.electricitybillingsystempl2project.entities;
 
-import org.pl.electricitybillingsystempl2project.Controllers.Operator;
+
 
 /**
  * @author a
