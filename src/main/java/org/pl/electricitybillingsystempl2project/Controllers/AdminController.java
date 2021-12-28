@@ -2,7 +2,7 @@ package org.pl.electricitybillingsystempl2project.Controllers;
 
 import javafx.fxml.FXML;
 
-public class Admin {
+public class AdminController {
     @FXML
     protected void Exit() {
         System.exit(0);

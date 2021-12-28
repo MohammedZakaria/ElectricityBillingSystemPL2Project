@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.LinkedList;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -25,12 +26,12 @@ class FilesManagerTest {
 
     @BeforeEach
     void setUp() {
-        EntityManager<Customer> em = new EntityManager<Customer>(Customer.class);
-        em.setRootPath("/d/EBS-PL");
-        em.save(new Customer("c1","14324"))
-                .onSuccess(customer -> System.out.println("tell the user that customer is saved"))
-                .onFailure(throwable -> System.out.println("tell the user that customer couldn't be saved"))
-                .get();
+//        EntityManager<Customer> em = new EntityManager<>(Customer.class);
+//        em.setRootPath("/d/EBS-PL");
+//        em.save(new Customer("c1","14324"))
+//                .onSuccess(customer -> System.out.println("tell the user that customer is saved"))
+//                .onFailure(throwable -> System.out.println("tell the user that customer couldn't be saved"))
+//                .get();
     }
 
     @Test
@@ -43,7 +44,7 @@ class FilesManagerTest {
 
     @Test
     void getOrCreateFile() {
-        FilesManager.getOrCreateFile("/d/testfetOrCreate.txt")
+        FilesManager.getOrCreateFile("/d/Mosup/Java/mosup17/Documents/IntelliJ Projects/ElectricityBillingSystemPL2Project/data/Admin.json")
                 .map(file -> Path.of(file.getPath()))
                 .map(path -> {
                     Try.of(() -> Files.readString(path))
@@ -51,6 +52,7 @@ class FilesManagerTest {
                             .flatMap(json -> Try.of(() -> new ObjectMapper().readValue(json,LinkedList.class)))
                             .onSuccess(linkedList -> assertTrue(linkedList.isEmpty()))
                             .onFailure(throwable -> fail())
+                            .get()
                     ;
                     System.out.println(new LinkedList<Integer>(){}.getClass());
                     return path;
@@ -61,5 +63,6 @@ class FilesManagerTest {
 
     @Test
     void writeToFile() {
+        System.out.println(Paths.get("data").toAbsolutePath());
     }
 }

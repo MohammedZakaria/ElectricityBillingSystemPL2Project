@@ -7,6 +7,6 @@ package org.pl.electricitybillingsystempl2project.entities;
 /**
  * @author a
  */
-public class Opreator {
+public class Operator extends BaseEntity {
     
 }

@@ -4,15 +4,30 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.pl.electricitybillingsystempl2project.entities.*;
+import org.pl.electricitybillingsystempl2project.entitymanager.EntityManager;
+import org.pl.electricitybillingsystempl2project.entitymanager.EntityManagerFactory;
+import org.pl.electricitybillingsystempl2project.entitymanager.FilesConfigurations;
 
 import java.io.IOException;
 
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("admin.fxml"));
+        FilesConfigurations.initiate();
+        FilesConfigurations.register(Admin.class, Operator.class,
+                Billing.class, Meter.class, Reading.class);
+        Admin admin = new Admin();
+        admin.setName("admin");
+        admin.setPassword("admin");
+        admin.setEmail("admin@elec.com");
+        admin.setPhone("1231345");
+        EntityManagerFactory.getEntityManager(Admin.class).save(admin)
+                .onFailure(Throwable::printStackTrace)
+                .get();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Elec Bill");
+        stage.setTitle("login");
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();

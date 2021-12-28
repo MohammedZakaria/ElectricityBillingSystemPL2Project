@@ -8,22 +8,10 @@ package org.pl.electricitybillingsystempl2project.entities;
  * @author a
  */
 public class User extends BaseEntity {
-    private String authorities;
-    private String name;
-    private String email;
-    private int password;
-
-    public User(String authorities, String name, String email, int password) {
-        super();
-    }
-
-    public String getAuthorities() {
-        return authorities;
-    }
-
-    public void setAuthorities(String authorities) {
-        this.authorities = authorities;
-    }
+    protected String name;
+    protected String phone;
+    protected String email;
+    protected String password;
 
     public String getName() {
         return name;
@@ -41,13 +29,22 @@ public class User extends BaseEntity {
         this.email = email;
     }
 
-    public int getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(int password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        if (phone.matches("[0-9]+"))
+            this.phone = phone;
+        else throw new RuntimeException("invalid phone number");
+    }
 }

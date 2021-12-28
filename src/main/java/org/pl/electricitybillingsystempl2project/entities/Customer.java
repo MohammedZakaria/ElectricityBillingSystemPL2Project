@@ -8,49 +8,25 @@ package org.pl.electricitybillingsystempl2project.entities;
  * @author a
  */
 public class Customer extends User {
-    int phone;
-    double meterid;
-    int contract;
-    String photo;
+    private String meterId;
+    private String contract;
 
-    public Customer(int phone, double meterid, int contract, String photo, String authorities, String name, String email, int password) {
-        super(authorities, name, email, password);
-        this.phone = phone;
-        this.meterid = meterid;
-        this.contract = contract;
-        this.photo = photo;
+
+    public String getMeterId() {
+        return meterId;
     }
 
-    public int getPhone() {
-        return phone;
+    public void setMeterId(String meterId) {
+        this.meterId = meterId;
     }
 
-    public void setPhone(int phone) {
-        this.phone = phone;
-    }
-
-    public double getMeterid() {
-        return meterid;
-    }
-
-    public void setMeterid(double meterid) {
-        this.meterid = meterid;
-    }
-
-    public int getContract() {
+    public String getContract() {
         return contract;
     }
 
-    public void setContract(int contract) {
+    public void setContract(String contract) {
         this.contract = contract;
     }
 
-    public String getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(String photo) {
-        this.photo = photo;
-    }
 
 }

@@ -4,9 +4,14 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.vavr.control.Option;
 import io.vavr.control.Try;
+import org.apache.commons.lang3.reflect.FieldUtils;
+import org.pl.electricitybillingsystempl2project.entities.*;
 
 import java.io.File;
+import java.io.IOException;
+import java.lang.reflect.Field;
 import java.nio.file.Path;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -17,8 +22,8 @@ public class EntityManager<T> {
     private String rootPath;
     private ObjectMapper mapper = new ObjectMapper();
 
-    public EntityManager(Class<T> cls){
-        this.filename = cls.getName() + ".json";
+    public EntityManager(Class<T> cls) {
+        this.filename = cls.getSimpleName() + ".json";
     }
 
 
@@ -41,20 +46,27 @@ public class EntityManager<T> {
     }
 
     public Function<File, Try<List<T>>> readAll() {
-        return (file) -> Try.of(() -> mapper.readValue(file, new TypeReference<List<T>>(){}));
+        return (file) -> Try.of(() -> mapper.readValue(file, new TypeReference<List<T>>() {
+        }));
     }
 
     public Try<List<T>> searchByKeyValue(String key, Object value) {
-        return readAll().apply(getFullPath().toFile()).map(all -> all.stream().filter(t ->
-                Try.of(() -> value.equals(t.getClass().getField(key).get(t)))
+         return readAll().apply(getFullPath().toFile()).map(all -> all.stream().filter(t ->
+                Try.of(() -> {
+                            for (Field f : FieldUtils.getAllFields(t.getClass()))
+                                if (f.getName().equals(key))
+                                    return value.equals(f.get(t));
+                            throw new RuntimeException("no attribute of name " + key + " was found");
+
+                        })
                         .onFailure(Throwable::printStackTrace)
                         .get()).collect(Collectors.toList()));
     }
 
-    public Try<T> update(String key, Object value,T entity){
+    public Try<T> update(String key, Object value, T entity) {
         Path path = getFullPath();
-        return searchByKeyValue(key,value).flatMap(allMatches -> {
-            if (allMatches.size() == 1){
+        return searchByKeyValue(key, value).flatMap(allMatches -> {
+            if (allMatches.size() == 1) {
                 return readAll().apply(getFullPath().toFile())
                         .map(allData -> {
                             allData.removeAll(allMatches);
@@ -62,11 +74,11 @@ public class EntityManager<T> {
                         })
                         .map(allData -> Try.of(() -> FilesManager.writeToFile(allData, path.toString())).toOption())
                         .map(paths -> entity);
-            }
-            else return Try.failure(new RuntimeException("couldn't update entity"))
+            } else return Try.failure(new RuntimeException("couldn't update entity"))
                     .map(o -> (T) o);
         });
     }
+
     public void setRootPath(String rootPath) {
         this.rootPath = rootPath;
     }

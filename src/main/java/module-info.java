@@ -11,7 +11,11 @@ module org.pl.electricitybillingsystempl2project {
     requires eu.hansolo.tilesfx;
     requires vavr;
     requires com.fasterxml.jackson.databind;
+    requires org.apache.commons.lang3;
 
-    opens org.pl.electricitybillingsystempl2project to javafx.fxml;
-    exports org.pl.electricitybillingsystempl2project;
+    opens org.pl.electricitybillingsystempl2project;
+    opens org.pl.electricitybillingsystempl2project.Controllers;
+
+    opens org.pl.electricitybillingsystempl2project.entities;
+    exports org.pl.electricitybillingsystempl2project.entities;
 }
