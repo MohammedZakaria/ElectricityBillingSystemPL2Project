@@ -6,7 +6,7 @@
 <TabPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
          minWidth="-Infinity" prefHeight="628.0" prefWidth="814.0" tabClosingPolicy="UNAVAILABLE"
          xmlns="http://javafx.com/javafx/8.0.171"
-         fx:controller="org.pl.electricitybillingsystempl2project.Controllers.Operator">
+         fx:controller="org.pl.electricitybillingsystempl2project.Controllers.OperatorController">
     <tabs>
         <Tab fx:id="operatorCust" text="Customers">
             <content>
