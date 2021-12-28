@@ -39,7 +39,7 @@ public class Login {
         String password = loginPasswordTxt.getText();
         switch (userType.toLowerCase()) {
             case "admin" ->
-                    doUserLogin(email, password, userType, EntityManagerFacto                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ry.getEntityManager(Admin.class));
+                    doUserLogin(email, password, userType, EntityManagerFactory.getEntityManager(Admin.class));
             case "operator" ->
                     doUserLogin(email, password, userType, EntityManagerFactory.getEntityManager(Operator.class));
             case "customer" ->

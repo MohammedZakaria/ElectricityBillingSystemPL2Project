@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -51,16 +52,21 @@ public class EntityManager<T> {
     }
 
     public Try<List<T>> searchByKeyValue(String key, Object value) {
-         return readAll().apply(getFullPath().toFile()).map(all -> all.stream().filter(t ->
-                Try.of(() -> {
-                            for (Field f : FieldUtils.getAllFields(t.getClass()))
-                                if (f.getName().equals(key))
-                                    return value.equals(f.get(t));
-                            throw new RuntimeException("no attribute of name " + key + " was found");
+         return readAll().apply(getFullPath().toFile()).map(all -> {
+             all.forEach(System.out::println);
+             return all.stream().filter(odj ->
+                     Try.of(() -> {
+                                 getAllClassFields(odj.getClass()).forEach(field -> System.out.println(field.getName()));
+                                 for (Field f : getAllClassFields(odj.getClass())) {
+                                     if (f.getName().equals(key))
+                                         return value.equals(FieldUtils.readField(f, odj, true));
+                                 }
+                                 throw new RuntimeException("no attribute of name " + key + " was found");
 
-                        })
-                        .onFailure(Throwable::printStackTrace)
-                        .get()).collect(Collectors.toList()));
+                             })
+                             .onFailure(Throwable::printStackTrace)
+                             .get()).collect(Collectors.toList());
+         });
     }
 
     public Try<T> update(String key, Object value, T entity) {
@@ -85,5 +91,16 @@ public class EntityManager<T> {
 
     public String getRootPath() {
         return this.rootPath;
+    }
+
+    private List<Field> getAllClassFields(Class cls){
+        // for each super class get all fields
+        Class superclass = cls.getSuperclass();
+        List<Field> fields = new LinkedList<>(Arrays.asList(FieldUtils.getAllFields(superclass)));
+        while (superclass != null){
+            fields.addAll(Arrays.asList(FieldUtils.getAllFields(superclass)));
+            superclass = superclass.getSuperclass();
+        }
+        return fields;
     }
 }
