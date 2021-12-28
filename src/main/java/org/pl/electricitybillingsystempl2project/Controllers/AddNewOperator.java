@@ -37,6 +37,6 @@ String confirmPassword=confirm_passwordTxt.getText();
 
     @FXML
     protected void cancelOperator() {
-
+        ControllersUtils.closePageWithNode(passwordTxt);
     }
 }
