@@ -6,6 +6,7 @@ public class UserEdit {
     @FXML
     protected void Exit() {
         System.exit(0);
+
     }
 
     @FXML
