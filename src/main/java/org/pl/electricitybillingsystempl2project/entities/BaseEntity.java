@@ -8,7 +8,7 @@ package org.pl.electricitybillingsystempl2project.entities;
  * @author a
  */
 public class BaseEntity {
-    private int id;
+    protected int id;
 
     public int getById(int id) {
         return 0;
