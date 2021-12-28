@@ -2,7 +2,7 @@ package org.pl.electricitybillingsystempl2project.Controllers;
 
 import javafx.fxml.FXML;
 
-public class Operator {
+public class OperatorController {
     @FXML
     protected void Exit() {
         System.exit(0);
