@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import org.pl.electricitybillingsystempl2project.entities.Admin;
 import org.pl.electricitybillingsystempl2project.entities.Customer;
+import org.pl.electricitybillingsystempl2project.entities.Operator;
 import org.pl.electricitybillingsystempl2project.entities.User;
 import org.pl.electricitybillingsystempl2project.entitymanager.EntityManager;
 import org.pl.electricitybillingsystempl2project.entitymanager.EntityManagerFactory;
