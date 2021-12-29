@@ -12,16 +12,20 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class EntityManager<T> {
 
     private final String filename;
     private String rootPath;
     private ObjectMapper mapper = new ObjectMapper();
+    private Predicate isValueFound;
 
     public EntityManager(Class<T> cls) {
         this.filename = cls.getSimpleName() + ".json";
@@ -51,22 +55,36 @@ public class EntityManager<T> {
         }));
     }
 
-    public Try<List<T>> searchByKeyValue(String key, Object value) {
-         return readAll().apply(getFullPath().toFile()).map(all -> {
-             all.forEach(System.out::println);
-             return all.stream().filter(odj ->
-                     Try.of(() -> {
-                                 getAllClassFields(odj.getClass()).forEach(field -> System.out.println(field.getName()));
-                                 for (Field f : getAllClassFields(odj.getClass())) {
-                                     if (f.getName().equals(key))
-                                         return value.equals(FieldUtils.readField(f, odj, true));
-                                 }
-                                 throw new RuntimeException("no attribute of name " + key + " was found");
+    public Function<File, Try<List>> readAllAsHashMap() {
+        return (file) -> Try.of(() -> mapper.readValue(file, new TypeReference<List>() {
+        }));
+    }
 
-                             })
-                             .onFailure(Throwable::printStackTrace)
-                             .get()).collect(Collectors.toList());
-         });
+    public Try<List<T>> searchByKeyValue(String key, Object value) {
+        Function<Object,T> transformMapToEntity =
+                t -> Try.of(() -> mapper.readValue(mapper.writeValueAsString(t),
+                        new TypeReference<T>() {
+                        })).get();
+
+        return readAllAsHashMap().apply(getFullPath().toFile())
+                .map(all -> (List<T>) all.stream()
+                        .filter(isValueFoundPredicate(key, value))
+                        .map(transformMapToEntity)
+                        .collect(Collectors.toList()));
+    }
+
+    private Predicate isValueFoundPredicate(String key, Object value) {
+        return obj ->
+                Try.of(() -> {
+                            HashMap<String, String> map = (HashMap<String, String>) obj;
+                            if (map.containsKey(key))
+                                return value.equals(map.get(key));
+                            else
+                                throw new RuntimeException("no attribute of name " + key + " was found");
+
+                        })
+                        .onFailure(Throwable::printStackTrace)
+                        .get();
     }
 
     public Try<T> update(String key, Object value, T entity) {
@@ -93,11 +111,11 @@ public class EntityManager<T> {
         return this.rootPath;
     }
 
-    private List<Field> getAllClassFields(Class cls){
+    private List<Field> getAllClassFields(Class cls) {
         // for each super class get all fields
         Class superclass = cls.getSuperclass();
         List<Field> fields = new LinkedList<>(Arrays.asList(FieldUtils.getAllFields(superclass)));
-        while (superclass != null){
+        while (superclass != null) {
             fields.addAll(Arrays.asList(FieldUtils.getAllFields(superclass)));
             superclass = superclass.getSuperclass();
         }
