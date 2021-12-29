@@ -12,6 +12,7 @@ module org.pl.electricitybillingsystempl2project {
     requires vavr;
     requires com.fasterxml.jackson.databind;
     requires org.apache.commons.lang3;
+    requires java.desktop;
 
     opens org.pl.electricitybillingsystempl2project;
     opens org.pl.electricitybillingsystempl2project.Controllers;

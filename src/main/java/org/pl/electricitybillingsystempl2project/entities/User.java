@@ -4,6 +4,8 @@
  */
 package org.pl.electricitybillingsystempl2project.entities;
 
+
+
 /**
  * @author a
  */
