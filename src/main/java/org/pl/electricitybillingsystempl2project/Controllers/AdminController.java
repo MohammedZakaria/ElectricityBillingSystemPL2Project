@@ -1,11 +1,15 @@
 package org.pl.electricitybillingsystempl2project.Controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 
 public class AdminController {
     @FXML
+    private TextField adminCustSearchById;
+    @FXML
     protected void Exit() {
-        System.exit(0);
+        ControllersUtils.openPage("login.fxml","login");
+        ControllersUtils.closePageWithNode(adminCustSearchById);
     }
 
     @FXML

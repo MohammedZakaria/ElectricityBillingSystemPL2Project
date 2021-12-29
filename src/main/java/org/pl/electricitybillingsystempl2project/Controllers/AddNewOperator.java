@@ -17,7 +17,7 @@ public class AddNewOperator {
     @FXML
     private TextField confirm_passwordTxt;
 
-    protected void registerOperator() {
+    public void registerOperator() {
 String name =nameTxt.getText();
 String phone=phoneTxt.getText();
 String password=passwordTxt.getText();

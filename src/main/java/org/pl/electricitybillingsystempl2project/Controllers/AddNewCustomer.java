@@ -51,4 +51,9 @@ public class AddNewCustomer {
     protected void uploadContract() {
 
     }
+
+    @FXML
+    protected void uploadPhoto(){
+
+    }
 }

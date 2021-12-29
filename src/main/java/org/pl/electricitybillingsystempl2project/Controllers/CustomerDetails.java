@@ -1,8 +1,10 @@
 package org.pl.electricitybillingsystempl2project.Controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 
 public class CustomerDetails {
+    @FXML private Label custDetailsId;
     @FXML
     protected void customerDetailsPrintBill() {
     }
@@ -29,6 +31,7 @@ public class CustomerDetails {
 
     @FXML
     protected void customerDetailsCancel() {
-
+        ControllersUtils.openPage( "login.fxml" , "Login");
+        ControllersUtils.closePageWithNode(custDetailsId);
     }
 }
