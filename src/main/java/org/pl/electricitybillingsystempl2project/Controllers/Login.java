@@ -44,24 +44,23 @@ public class Login {
         }
     }
 
-    private void doUserLogin(String email, String password, String userType, EntityManager em) {
-        goToUserPage(userType);
-        ControllersUtils.closePageWithNode(loginPasswordTxt);
-//        em.searchByKeyValue("email", email)
-//                .onSuccess(data -> {
-//                    List<User> users = (List<User>) data;
-//                    if (users.size() == 1)
-//                        if (Objects.equals(users.get(0).getPassword(), password)) {
-//                            goToUserPage(userType);
-//                            ControllersUtils.closePageWithNode(loginPasswordTxt);
-//                            return;
-//                        }
-//                    new Alert(Alert.AlertType.ERROR, "username or password is invalid").show();
-//                }).onFailure(throwable -> {
-//                    ((Exception) throwable).printStackTrace();
-//                    new Alert(Alert.AlertType.ERROR, "something went wrong").show();
-//                }).get()
-//        ;
+    private <T extends User> void doUserLogin(String email, String password, String userType, EntityManager<T> em) {
+//        goToUserPage(userType);
+//        ControllersUtils.closePageWithNode(loginPasswordTxt);
+        em.searchByKeyValue("email", email)
+                .onSuccess(users -> {
+                    if (users.size() == 1)
+                        if (Objects.equals(users.get(0).getPassword(), password)) {
+                            goToUserPage(userType);
+                            ControllersUtils.closePageWithNode(loginPasswordTxt);
+                            return;
+                        }
+                    new Alert(Alert.AlertType.ERROR, "username or password is invalid").show();
+                }).onFailure(throwable -> {
+                    ((Exception) throwable).printStackTrace();
+                    new Alert(Alert.AlertType.ERROR, "something went wrong").show();
+                }).get()
+        ;
     }
 
 

@@ -17,14 +17,6 @@ public class HelloApplication extends Application {
         FilesConfigurations.initiate();
         FilesConfigurations.register(Admin.class, Operator.class,
                 Billing.class, Meter.class, Reading.class);
-        Admin admin = new Admin();
-        admin.setName("admin");
-        admin.setPassword("admin");
-        admin.setEmail("admin@elec.com");
-        admin.setPhone("1231345");
-        EntityManagerFactory.getEntityManager(Admin.class).save(admin)
-                .onFailure(Throwable::printStackTrace)
-                .get();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("login");
